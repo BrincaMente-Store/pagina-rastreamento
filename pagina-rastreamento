@@ -1,0 +1,62 @@
+<p>Rastrear Pedido - Brincamente Store</p>
+<style>
+	body {
+		font-family: Arial, sans-serif; background-color: #fefefe; margin: 0; padding: 20px; text-align: center;
+	}
+	
+	.container {
+		max-width: 500px; margin: auto; padding: 40px 20px; background-color: #fff; border-radius: 16px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	}
+	
+	input {
+		width: 80%; padding: 12px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 20px;
+	}
+	
+	button {
+		background-color: #00deff; border: none; color: white; padding: 14px 24px; font-size: 18px; font-weight: bold; border-radius: 8px; cursor: pointer;
+	}
+	
+	button:hover {
+		background-color: #f3ff14;
+	}
+	
+	iframe {
+		width: 100%; height: 600px; margin-top: 30px; border: none;
+	}
+	
+	.info-text {
+		font-size: 14px; color: #555; margin-bottom: 20px;
+	}
+
+</style>
+<div class="container">
+
+	<h2>🔍 Rastreie seu pedido</h2>
+
+	<p>Digite o seu c&oacute;digo de rastreio abaixo e acompanhe cada passo da entrega:</p>
+	<div class="info-text">
+
+		<p><strong>Assim que seu pedido for enviado, voc&ecirc; receber&aacute; o c&oacute;digo de rastreio por e-mail e poder&aacute; acompanhar tudo por aqui!</strong></p>
+
+		<p><em>Obs: Ap&oacute;s o pedido ser enviado, as primeiras informa&ccedil;&otilde;es podem levar at&eacute; 48h para serem atualizadas no sistema de rastreamento.</em></p>
+	</div>
+	<input type="text" id="codigo" placeholder="Ex: LP00431624822333">
+	<br>
+	<button>Rastrear Pedido</button>
+	<div id="iframeContainer">
+		<br>
+	</div></div>
+<script>
+	function rastrear()
+	{
+		const codigo = document.getElementById("codigo").value.trim();
+		if (!codigo)
+		{
+			alert("Digite um código de rastreio válido.");
+			return;
+		}
+		const iframe = `<iframe src="https://t.17track.net/pt#nums=${codigo}"></iframe>`;
+		document.getElementById("iframeContainer").innerHTML = iframe;
+	}
+
+</script>
